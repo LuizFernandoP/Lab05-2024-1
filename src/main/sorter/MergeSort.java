@@ -28,6 +28,12 @@ public class MergeSort implements Sorter {
         return values;
     }
 
+    public int[] merge(int[] left, int[] right) {
+        int[] result = new int[left.length + right.length];
+        merge(left, right, result);
+        return result;
+    }
+
     public static void merge(int[] left, int[] right, int[] values) {
         int leftSize = values.length / 2;
         int rightSize = values.length - leftSize;
@@ -39,7 +45,7 @@ public class MergeSort implements Sorter {
                 i++;
                 l++;
             } else {
-                values[i] = right[l];
+                values[i] = right[r];
                 i++;
                 r++;
             }
